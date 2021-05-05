@@ -5,7 +5,7 @@
  */
 package programa;
 
-import listas.ListaEnlazadaDobleCP;
+import listas.ListaEnlazadaDobleCPrioridad;
 
 /**
  *
@@ -13,14 +13,14 @@ import listas.ListaEnlazadaDobleCP;
  */
 public class Programa extends javax.swing.JFrame {
 
-    ListaEnlazadaDobleCP lecp;
+    ListaEnlazadaDobleCPrioridad lecp;
 
     /**
      * Creates new form Programa
      */
     public Programa() {
         initComponents();
-        lecp = new ListaEnlazadaDobleCP();
+        lecp = new ListaEnlazadaDobleCPrioridad();
     }
 
     /**
@@ -77,7 +77,7 @@ public class Programa extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblDato)
@@ -88,8 +88,9 @@ public class Programa extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnInsertar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEliminar)))
-                .addContainerGap(203, Short.MAX_VALUE))
+                        .addComponent(btnEliminar)
+                        .addGap(0, 197, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +121,11 @@ public class Programa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        lecp.eliminar();
+        if (!lecp.eliminar()) {
+            txtLista.setText("LISTA VACIA");
+            return;
+        }
+
         txtLista.setText(lecp + "");
     }//GEN-LAST:event_btnEliminarActionPerformed
 

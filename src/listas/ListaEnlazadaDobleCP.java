@@ -83,21 +83,14 @@ public class ListaEnlazadaDobleCP {
 
     @Override
     public String toString() {
-        return mostrar();
+        return mostrar(fin);
     }
 
-    private String mostrar() {
-        if (ini == null) {
-            return "LISTA VACIA";
+    private String mostrar(NodoDoblePrioridad nodo) {
+        if (nodo == ini) {
+            return ini + "\n";
         }
-        String res = "";
-        NodoDoblePrioridad nodo = ini;
-        while (nodo != fin) {
-            res += nodo + "\n";
-            nodo = nodo.getSiguiente();
-        }
-
-        return res + fin;
+        return mostrar(nodo.getAnterior()) + nodo + "\n";
     }
 
 }

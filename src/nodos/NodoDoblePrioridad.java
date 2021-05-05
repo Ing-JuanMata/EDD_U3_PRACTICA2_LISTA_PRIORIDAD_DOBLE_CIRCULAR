@@ -56,7 +56,7 @@ public class NodoDoblePrioridad {
 
     @Override
     public String toString() {
-        return "{" + "dato=" + dato + ", prioridad=" + prioridad + '}';
+        return "dato=" + dato + ", prioridad=" + prioridad;
     }
 
     
